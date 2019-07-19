@@ -17,7 +17,6 @@ for(var i = 0; i < N; i++){
 
 function detectKey(event) {
 	var stop = false;
-	console.log(event.keyCode);
 	switch (event.keyCode) {
 	   case 106:
 	   		moveLeft();
@@ -90,7 +89,6 @@ function isLose() {
 
 function main(){
 	var rp = getRandomEmptyCell();
-	console.log(rp);
 	B[rp.x][rp.y] = 2;
 
 	//print Board
@@ -107,9 +105,8 @@ function getRandomEmptyCell(){
 			}
 		}
 	}
-	console.log(ec);
+
 	var rn = parseInt(ec.length * Math.random());
-	console.log(rn);
 	//return a random cell
 	if(ec.length == 0){
 		return {x: -1, y: -1};
