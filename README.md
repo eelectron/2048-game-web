@@ -1,5 +1,5 @@
 Game 2048 (https://en.wikipedia.org/wiki/2048_(video_game)) .  
 
-![Screenshot1](uploads/ceb981082ba573a30d0d541702844f8f/Screenshot_2019-07-21_10.42.23.png)
+![Screenshot1](Screenshot1.png)
 
-![Screenshot2](uploads/aa5b3aa98f443f67987f69b13fa8e13f/Screenshot_2019-07-21_11.03.43.png)
+![Screenshot2](Screenshot2.png)
