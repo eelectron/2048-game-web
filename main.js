@@ -2,18 +2,49 @@
 
 var B = [];
 var N = 4;
-const WINING_SCORE = 2048;
+const WINING_SCORE = 16;
 var win = false;
 var RandomPos = {x: -1, y:-1};
+var score = 0;
 
-for(var i = 0; i < N; i++){
-	var A = []
-	for(var j = 0; j < N; j++){
-		A.push(0);
-	}
-	B.push(A);
+// Start program
+main();
+
+function main(){
+    newGame();
+
+    //print Board
+    printBoard();    
 }
 
+
+//intialize game
+function newGame(){
+    B = [];
+
+    // reset board
+    for(var i = 0; i < N; i++){
+        var A = []
+        for(var j = 0; j < N; j++){
+            A.push(0);
+        }
+        B.push(A);
+    }
+
+    var rp = getRandomEmptyCell();
+    B[rp.x][rp.y] = 2;
+
+    $(".status").text(" ");
+
+    score       = 0;
+    $(".score span").text(score);
+
+    win         = false;
+    RandomPos   = {x: -1, y:-1};  
+
+    //print Board
+    printBoard(); 
+}
 
 function detectKey(event) {
 	var stop = false;
@@ -35,20 +66,23 @@ function detectKey(event) {
 	   		break;
 	}
 
+    //print score dynamically
+    $(".score span").text(score);
+
 	if(winStatus() == true){
-		alert("You, Win !!");
+		$(".status").text("Congratulations, You Win!!");
+        $(".status").css("color", "green");
 	}
 
 	if(isLose() == true){
-		alert("Try, again .");
+		$(".status").text("Try again :(");
+        $(".status").css("color", "red");
 	}
 
 	//print Board
 	printBoard();
 }
 
-// Start program
-main();
 
 
 function printBoard(){
@@ -87,14 +121,6 @@ function isLose() {
 	return true;
 }
 
-function main(){
-	var rp = getRandomEmptyCell();
-	B[rp.x][rp.y] = 2;
-
-	//print Board
-	printBoard();
-	
-}
 
 function getRandomEmptyCell(){
 	var ec = [];
@@ -157,6 +183,10 @@ function mergeCellLeft(i)
         {
             B[i][j - 1] += B[i][j];
             B[i][j] = 0;
+
+            //update score
+            score += B[i][j - 1];
+
             isAnyMerged = true;
             if (B[i][j - 1] == WINING_SCORE)
                 win = true;
@@ -177,6 +207,10 @@ function mergeCellRight(i)
         {
             B[i][j + 1] += B[i][j];
             B[i][j] = 0;
+
+            //update score
+            score += B[i][j + 1];
+
             isAnyMerged = true;
             if (B[i][j + 1] == WINING_SCORE)
             {
@@ -199,6 +233,10 @@ function mergeCellUp(c)
         {
             B[r - 1][c] += B[r][c];
             B[r][c] = 0;
+
+            //update score
+            score += B[r - 1][c];
+
             isAnyMerged = true;
             if (B[r - 1][c] == WINING_SCORE)
             {
@@ -221,6 +259,10 @@ function mergeCellDown(c)
         {
             B[r + 1][c] += B[r][c];
             B[r][c] = 0;
+
+            //update score
+            score += B[r + 1][c];
+
             isAnyMerged = true;
             if (B[r + 1][c] == WINING_SCORE)
             {

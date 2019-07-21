@@ -1,3 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
 .game-container{
 	width: 400px;
 	height: 400px;
@@ -26,4 +41,55 @@
 	box-sizing: border-box;
 	text-align: center;
 	font-size: 200%;
+}
+
+.score{
+	text-align: center;
+	font-size: 30px;
+}
+
+.status{
+	text-align: center;
+	font-size: 20px;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.column.side{
+	width: 35%;
+}
+
+.column.middle{
+	width: 40%;
+}
+
+.column.right{
+	width: 20%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button{
+	border-radius: 12px;
+	text-align: center;
+	padding: 10px;
+	cursor: pointer;
+	background-color: #ffffff;
+	font-weight: bold;
+
+}
+
+.footer{
+	background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
 }

@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>Merge The Tiles : 2048</title>
+		<title>2048</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="main.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		
 
 	</head>
 	<body>
+		<div class="header">
 		<h1>2048</h1>
+	</div>
+	
+	<div class="row">
+	<div class="column side">
+		<div class = "score">Score : <span>0</span></div>
+		<div class="status">Status</div>
+	</div>
+
+	<div class="column middle">
 		<!-- Game Container -->
 		<div class="game-container">
 			
@@ -43,12 +54,32 @@
 				</div>
 			</div>
 		</div>
+		<button class="newGame">New Game</button>
+	</div>
 
-		<div class="footer">Created By : Prashant Singh, 19-July-2019</div>
+	<div class="column right">
+		<p>Game Rules: </p>
+		<p>
+			Merge the tiles with same number.
+			<ul>
+				<li>press j to move left</li>
+				<li>press l to move right</li>
+				<li>press i to move up</li>
+				<li>press k to move down</li>
+			</ul>
+		</p>
+	</div>
+</div>
+		<div
+		<div class="footer">Created By : Prashant Singh</div>
 		<script src="main.js"></script>
 		<script type="text/javascript">
 			$(document).on("keypress", function (e) {
     			detectKey(e);
+			});
+
+			$(".newGame").click(function(){
+				newGame();
 			});
 		</script>
 	</body>
