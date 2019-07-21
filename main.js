@@ -2,7 +2,7 @@
 
 var B = [];
 var N = 4;
-const WINING_SCORE = 16;
+const WINING_SCORE = 2048;
 var win = false;
 var RandomPos = {x: -1, y:-1};
 var score = 0;
